@@ -1,7 +1,9 @@
+// src/app/Categories/Categories.tsx
+
 'use client'
 import React, { useEffect, useState } from "react";
 import { FunctionFetch } from "@/utils/FunctionFetch";
-import {Card} from "../../components/Card"
+import { Card } from "../../components/Card"
 
 interface CategoryIdProps {
   categoryId: number;
@@ -13,7 +15,7 @@ interface Product {
   description: string;
   price: number;
   stock: number;
-  categoryId: number; 
+  categoryId: number;
 }
 
 const DetailCategorie: React.FC<CategoryIdProps> = ({ categoryId }) => {
@@ -23,26 +25,25 @@ const DetailCategorie: React.FC<CategoryIdProps> = ({ categoryId }) => {
     const fetchProduct = async () => {
       try {
         const products: Product[] = await FunctionFetch("http://localhost:4000/products");
-        const foundProduct = products.find(product => product.categoryId === categoryId); 
+        const foundProduct = products.find(product => product.categoryId === categoryId);
         setProduct(foundProduct || null);
         console.log(products);
-        console.log(foundProduct); 
+        console.log(foundProduct);
       } catch (error) {
         console.error("Error fetching products:", error);
       }
     };
 
     fetchProduct();
-  }, [categoryId]); 
+  }, [categoryId]);
 
   if (product === null) {
-    return ;
+    return <div>No product found</div>;  // Ensure you return a valid JSX element
   }
 
   return (
     <div>
-
-      <Card image={""} key={product.id} {...product}/>
+      <Card image={""} key={product.id} {...product} />
     </div>
   );
 };
