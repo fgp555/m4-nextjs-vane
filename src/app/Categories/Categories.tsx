@@ -1,9 +1,7 @@
-// src/app/Categories/Categories.tsx
-
 'use client'
 import React, { useEffect, useState } from "react";
 import { FunctionFetch } from "@/utils/FunctionFetch";
-import { Card } from "../../components/Card"
+import { Card } from "../../components/Card";
 
 interface CategoryIdProps {
   categoryId: number;
@@ -38,7 +36,7 @@ const DetailCategorie: React.FC<CategoryIdProps> = ({ categoryId }) => {
   }, [categoryId]);
 
   if (product === null) {
-    return <div>No product found</div>;  // Ensure you return a valid JSX element
+    return null; // Ensure it returns null or a fallback UI
   }
 
   return (
