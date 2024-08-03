@@ -2,13 +2,13 @@
 import React, { useState } from 'react';
 import DetailCategorie from '../../components/CategoriesComponent.tsx/Categories';
 
-// Define the CategoryIdProps type if not already defined
+// Define the CategoryIdProps type
 interface CategoryIdProps {
   categoryId: number;
 }
 
-const ParentComponent: React.FC<CategoryIdProps> = ({ categoryId }) => {
-  const [selectedCategoryId, setSelectedCategoryId] = useState<number>(categoryId || 0);
+const ParentComponent: React.FC<CategoryIdProps> = ({ categoryId = 0 }) => {
+  const [selectedCategoryId, setSelectedCategoryId] = useState<number>(categoryId);
 
   const handleCategoryChange = (id: number) => {
     setSelectedCategoryId(id);
