@@ -54,7 +54,7 @@ interface AuthProviderProps {
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     const [DataUser, setUserData] = useState<userSessionProps | null>(null);
-    const [token, setToken] = useState<string | null>(null);
+    const [token, setToken] = useState<string | null>(localStorage.getItem('userToken'));
     const [cartProducts, setCartProducts] = useState<any[]>([]);
 
     useEffect(() => {
@@ -68,11 +68,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         if (typeof window !== 'undefined'&& window.localStorage) {
             const data = localStorage.getItem('usersession');
             setUserData(JSON.parse(data!));
-        }
-
-        if (typeof window !== 'undefined' && window.localStorage) {
-            const token = localStorage.getItem('userToken');
-            setToken(token);
         }
     }, []);
 

@@ -1,3 +1,5 @@
+// front/src/Context/AuthContext.tsx
+
 'use client'
 
 import { createContext, useContext, useState, useEffect } from 'react';
@@ -54,7 +56,7 @@ interface AuthProviderProps {
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     const [DataUser, setUserData] = useState<userSessionProps | null>(null);
-    const [token, setToken] = useState<string | null>(null);
+    const [token, setToken] = useState<string | null>('');
     const [cartProducts, setCartProducts] = useState<any[]>([]);
 
     useEffect(() => {
@@ -71,7 +73,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         }
 
         if (typeof window !== 'undefined' && window.localStorage) {
-            const token = localStorage.getItem('userToken');
+            const token = localStorage.getItem('token');
+            
             setToken(token);
         }
     }, []);
