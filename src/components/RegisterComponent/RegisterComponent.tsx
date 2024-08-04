@@ -40,7 +40,7 @@ const RegisterComponent = () => {
         console.log('Form Data:', register);
 
         try {
-            const json = await RegisterFetch('http://localhost:4000/users/register', register);
+            const json = await RegisterFetch('https://gio.1rodemayo.com/users/register', register);
             console.log("json", json);
             toast.success('Registro exitoso');
             setRegister({

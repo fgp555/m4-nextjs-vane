@@ -7,8 +7,11 @@ import { ICardProps } from '@/components/Card/types';
 import ParentComponent from '../Category/page'
 import { Toaster } from 'sonner';
 
+// const url = process.env.NEXT_PUBLIC_API_URL;
+// const url = "https://zkxnlxm3-4000.brs.devtunnels.ms";
+
   const AllProducts: React.FC  = async () => {
-    const products = await FunctionFetch("http://localhost:4000/products");
+    const products = await FunctionFetch("https://gio.1rodemayo.com/products");
     // const products = await FunctionFetch("https://zkxnlxm3-4000.brs.devtunnels.ms/products");
     
   

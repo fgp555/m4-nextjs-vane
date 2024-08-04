@@ -22,7 +22,7 @@ const DetailCategorie: React.FC<CategoryIdProps> = ({ categoryId }) => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const products: Product[] = await FunctionFetch("http://localhost:4000/products");
+        const products: Product[] = await FunctionFetch("https://gio.1rodemayo.com/products");
         const foundProduct = products.find(product => product.categoryId === categoryId); 
         setProduct(foundProduct || null);
         console.log(products);

@@ -12,7 +12,7 @@ const DetailProduct: React.FC <IdParams>  = async ({params} ) => {
 
    const idProduct = Number(params.id)
     console.log (idProduct)
-    const products = await FunctionFetch("http://localhost:4000/products");
+    const products = await FunctionFetch("https://gio.1rodemayo.com/products");
     // const products = await FunctionFetch("https://zkxnlxm3-4000.brs.devtunnels.ms/products");
     
       

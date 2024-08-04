@@ -35,7 +35,7 @@ const ProductsClients = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch("http://localhost:4000/products");
+        const response = await fetch("https://gio.1rodemayo.com/products");
         if (!response.ok) {
           throw new Error('Error al obtener los productos');
         }
